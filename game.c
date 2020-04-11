@@ -75,11 +75,12 @@ void main(){
             loop_times = 0;
             result=0;
 
-            while(result == 0){
+            while(result == 0){         // İf user enter unaccepted character will came back there.
                 
+                // We print gameboard.
                 printf("\n\n\n %c | %c | %c \n-----------\n %c | %c | %c \n-----------\n %c | %c | %c \n\n\n", area[6], area[7] , area[8], area[3], area[4], area[5], area[0], area[1], area[2]);
 
-
+                // Control winning conditions.
                 if (((area[0] == area[3]) && (area[3] == area[6])) || ((area[1] == area[4]) && (area[4] == area[7])) || ((area[2] == area[5]) && (area[5] == area[8])) ||   // Control columns.
                     ((area[0] == area[1]) && (area[1] == area[2])) || ((area[3] == area[4]) && (area[4] == area[5])) || ((area[6] == area[7]) && (area[7] == area[8])) ||   // Control raws.
                     ((area[0] == area[4]) && (area[4] == area[8])) || ((area[2] == area[4]) && (area[4] == area[6]))){                                                      // Control diagonal.
@@ -93,13 +94,13 @@ void main(){
 
                     result = 1;
 
-                } else if(loop_times > 8){
+                } else if(loop_times > 8){      // If we can't find out winner for 9 turn thats mean game is draw.
 
                     printf("We don't have winner. DRAW.\n");
                     draw_score++;
                     result = 1;
 
-                } else {
+                } else {                        // When we have not winner game go on.
 
                     if (loop_times%2 == 0)
                         turn = player1;
@@ -112,6 +113,7 @@ void main(){
                     printf("Please select area for move: ");
                     scanf("%d", &turn.move);
 
+                    // Control there entered move.
                     if(turn.move < 1 || turn.move > 9){
                         printf("\nYou select wrong answer\nPlease select area [1-9].\n\n\n");
                     } else if(area[turn.move-1] == 'x' || area[turn.move-1] == 'o'){
@@ -125,7 +127,7 @@ void main(){
 
             }
 
-
+            // If game is over program print results and next operations menu.
             while(result == 1){
                 printf("Score:\n\n%s: %d\n%s: %d\nDraw: %d\n\n1: Play same mode again.\n2: Menu.\n\nAnswer: ", player1.name, player1.score, player2.name, player2.score, draw_score);
                 scanf("%d", &final_answer);
@@ -152,7 +154,7 @@ void main(){
             }
         }
 
-        } else{
+        } else{         // If user select against Computer mode he will came there.
 
             while(loop_of_game == 0){
 
@@ -163,11 +165,12 @@ void main(){
             
 
 
-            while(result == 0){
+            while(result == 0){         // İf user enter unaccepted character will came back there.
                 
+                // We print gameboard.
                 printf("\n\n\n %c | %c | %c \n-----------\n %c | %c | %c \n-----------\n %c | %c | %c \n\n\n", area[6], area[7] , area[8], area[3], area[4], area[5], area[0], area[1], area[2]);
 
-
+                // Control winning conditions.
                 if (((area[0] == area[3]) && (area[3] == area[6])) || ((area[1] == area[4]) && (area[4] == area[7])) || ((area[2] == area[5]) && (area[5] == area[8])) ||   // Control columns.
                     ((area[0] == area[1]) && (area[1] == area[2])) || ((area[3] == area[4]) && (area[4] == area[5])) || ((area[6] == area[7]) && (area[7] == area[8])) ||   // Control raws.
                     ((area[0] == area[4]) && (area[4] == area[8])) || ((area[2] == area[4]) && (area[4] == area[6]))){                                                      // Control diagonal.
@@ -181,13 +184,13 @@ void main(){
                     }
                     result = 1;
 
-                } else if(loop_times > 8){
+                } else if(loop_times > 8){           // If we can't find out winner for 9 turn thats mean game is draw.
 
                     printf("We don't have winner. DRAW.\n");
                     draw_score++;
                     result = 1;
 
-                } else {
+                } else {                            // When we have no winner game go on.
 
                     if (loop_times%2 == 0)
                         turn = player1;
@@ -197,10 +200,10 @@ void main(){
 
                     printf("Your turn now.\n");
 
-                    if(loop_times%2 == 0){
+                    if(loop_times%2 == 0){              // If users turn we take move from user. 
                         printf("Please select area for move: ");
                         scanf("%d", &turn.move);
-                    } else {
+                    } else {                            // If Computer turn we calculate next move above. 
 
                         if ((area[4] == '5') && (((area[1] == area[7]) && (area[7] == 'o')) || ((area[3] == area[5]) && (area[5] == 'o')) || ((area[2] == area[6]) && (area[6] == 'o')) || ((area[0] == area[8]) && (area[8] == 'o')))){
                             turn.move = 5;  
@@ -277,7 +280,7 @@ void main(){
                     }
 
                     
-
+                    // Control there entered move.
                     if(turn.move < 1 || turn.move > 9){
                         printf("\nYou select wrong answer\nPlease select area [1-9].\n\n\n");
                     } else if(area[turn.move-1] == 'x' || area[turn.move-1] == 'o'){
@@ -291,7 +294,7 @@ void main(){
 
             }
 
-
+            // If game is over program print results and next operations menu.
             while(result == 1){
                 printf("Score:\n\n%s: %d\nComputer: %d\nDraw: %d\n\n1: Play same mode again.\n2: Menu.\n\nAnswer: ", player1.name, player1.score, player2.score, draw_score);
                 scanf("%d", &final_answer);
