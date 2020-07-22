@@ -33,6 +33,8 @@ void main(){
                 
                 printf("\n\nEnter Player 1 Nick: (8 character)\n");
                 scanf("%s", player1.name);
+                    
+                printf("\n\n%s is 'x'     Computer is 'o'\n\n\n", player1.name);
                 
                 loop_of_menu = 1;
                 break;
@@ -45,6 +47,8 @@ void main(){
                 printf("\n\nEnter Player 2 Nick: (8 character)\n");
                 scanf("%s", player2.name);
 
+                printf("\n\n%s is 'x'     %s is 'o'\n\n\n", player1.name, player2.name);
+                    
                 loop_of_menu = 1;
                 break;
 
@@ -60,8 +64,6 @@ void main(){
             }
 
         }
-
-        printf("\n\n%s is 'x'     %s is 'o'\n\n\n", player1.name, player2.name);
         
         player1.score = 0;      // Set 0 for beginning.
         player2.score = 0;
